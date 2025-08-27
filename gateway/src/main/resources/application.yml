@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
+        - id: tasks
+          uri: http://localhost:8001
+          predicates:
+            - Path=/tasks/**
+        - id: profile
+          uri: http://localhost:3002
+          predicates:
+            - Path=/profile/**
+        - id: search
+          uri: http://localhost:8084
+          predicates:
+            - Path=/search/**
+
+jwt:
+  secret: supersecretkey
