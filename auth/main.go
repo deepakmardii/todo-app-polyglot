@@ -51,7 +51,7 @@ func main() {
 		log.Fatalf("MongoDB connection error: %v", err)
 	}
 	mongoClient = client
-	usersColl = client.Database("todo_auth").Collection("users")
+	usersColl = client.Database("todo_shared").Collection("users")
 
 	r := gin.Default()
 
